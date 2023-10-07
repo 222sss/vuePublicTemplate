@@ -7,9 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
     Performance: (typeof import('./src/components/performance/index.vue'))['default']
-    RouterLink: (typeof import('vue-router'))['RouterLink']
-    RouterView: (typeof import('vue-router'))['RouterView']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     VanBackTop: (typeof import('vant/es'))['BackTop']
     VanButton: (typeof import('vant/es'))['Button']
     VanCellGroup: (typeof import('vant/es'))['CellGroup']

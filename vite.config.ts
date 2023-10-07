@@ -7,6 +7,10 @@ import path from 'path'
 // 解决问题：解决import {ref, reactive …} 引入的问题，这样就不需要在每个组件中重复引入了
 import AutoImport from 'unplugin-auto-import/vite'
 
+// element 按需加载
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 // 兼容低版本浏览器
 import legacy from '@vitejs/plugin-legacy'
 
@@ -14,6 +18,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
+      resolvers: [ElementPlusResolver()],
       imports: [
         'vue',
         'vue-router',
@@ -26,11 +31,14 @@ export default defineConfig({
         enabled: true
       }
     }),
-
+    Components({
+      resolvers: [ElementPlusResolver()]
+    }),
     legacy({
       targets: ['defaults', 'not IE 11']
     })
   ],
+
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
