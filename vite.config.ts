@@ -4,10 +4,6 @@ import vue from '@vitejs/plugin-vue'
 // 全局别名
 import path from 'path'
 
-// vant
-import Components from 'unplugin-vue-components/vite'
-import { VantResolver } from 'unplugin-vue-components/resolvers'
-
 // 解决问题：解决import {ref, reactive …} 引入的问题，这样就不需要在每个组件中重复引入了
 import AutoImport from 'unplugin-auto-import/vite'
 
@@ -29,14 +25,6 @@ export default defineConfig({
       eslintrc: {
         enabled: true
       }
-    }),
-    Components({
-      resolvers: [VantResolver()],
-      extensions: ['vue', 'md'],
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      dts: 'src/components.d.ts',
-      deep: true, // 搜索子目录
-      dirs: ['src/components'] // 按需加载的文件夹
     }),
     legacy({
       targets: ['defaults', 'not IE 11']
