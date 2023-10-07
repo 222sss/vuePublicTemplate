@@ -24,7 +24,12 @@
     "noUnusedParameters": false, // 报告未使用参数的错误
     "experimentalDecorators": true // 启用对ES装饰器的实验性支持
   },
-  "include": ["src", "./auto-imports.d.ts", "./components.d.ts"],
+  "include": [
+    "src",
+    "./auto-imports.d.ts",
+    "./components.d.ts",
+    "./configure.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": ["node_modules", "build"] // 不进行类型检查的文件
 }
