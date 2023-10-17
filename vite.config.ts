@@ -41,7 +41,7 @@ export default defineConfig({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
-    qiankun('appSub1', { useDevMode }) // 当作为子应用事才需要，子应用名为主应用注册的名字
+    qiankun('my-vue-app', { useDevMode }) // 当作为子应用事才需要，子应用名为主应用注册的名字
   ],
 
   resolve: {

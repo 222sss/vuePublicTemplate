@@ -13,6 +13,6 @@ const qiankunConfig = {
       activeRule: '/yourActiveRule2'
     }
   ],
-  qiankunType: 'main' //主应用:main,子应用：Sub
+  qiankunType: 'Sub' //主应用:main,子应用：Sub
 }
 export default qiankunConfig
