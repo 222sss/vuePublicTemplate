@@ -4,6 +4,9 @@ import vue from '@vitejs/plugin-vue'
 // 全局别名
 import path from 'path'
 
+// 注册组件名,用于做组件页面缓存,组件名命名应于路由名一致
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+
 // 解决问题：解决import {ref, reactive …} 引入的问题，这样就不需要在每个组件中重复引入了
 import AutoImport from 'unplugin-auto-import/vite'
 
@@ -12,6 +15,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
+
 // 兼容低版本浏览器
 import legacy from '@vitejs/plugin-legacy'
 
@@ -22,6 +26,7 @@ const useDevMode = true // 如果是在主应用中加载子应用vite,必须打
 export default defineConfig({
   plugins: [
     vue(),
+    VueSetupExtend(),
     AutoImport({
       resolvers: [
         ElementPlusResolver(), // 自动导入图标
