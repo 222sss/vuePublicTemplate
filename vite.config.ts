@@ -10,7 +10,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 // element 按需加载
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
 // 兼容低版本浏览器
 import legacy from '@vitejs/plugin-legacy'
 
@@ -22,7 +23,12 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(), // 自动导入图标
+        IconsResolver({
+          prefix: 'Icon'
+        })
+      ],
       imports: [
         'vue',
         'vue-router',
@@ -36,7 +42,15 @@ export default defineConfig({
       }
     }),
     Components({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          enabledCollections: ['ep']
+        })
+      ]
+    }),
+    Icons({
+      autoInstall: true
     }),
     legacy({
       targets: ['defaults', 'not IE 11']
@@ -50,8 +64,10 @@ export default defineConfig({
       '@': path.resolve('src')
     }
   },
+
   // 静态资源基础路径 base: './' || '',
   base: './',
+
   server: {
     host: '0.0.0.0',
     port: 4000, // 设置服务启动端口号
@@ -67,10 +83,12 @@ export default defineConfig({
     //   }
     // }
   },
+
   css: {
-    //css预处理
+    // css预处理器
     preprocessorOptions: {
       less: {
+        charset: false,
         additionalData: '@import "./src/styles/index.less";'
       }
     }

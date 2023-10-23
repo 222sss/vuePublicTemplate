@@ -10,7 +10,8 @@ import {
 } from 'vite-plugin-qiankun/dist/helper'
 import { registerMicroApps, start } from 'qiankun'
 import qiankunConfig from '@/configure/qiankunConfig'
-
+import './styles/index.less'
+import 'element-plus/dist/index.css'
 const app = createApp(App)
 
 // 子应用挂载函数

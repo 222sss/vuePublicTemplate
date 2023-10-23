@@ -9,13 +9,22 @@ export const releaseRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/home',
-    name: 'home',
-    component: () => import('@/views/home/index.vue')
+    name: '首页',
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/homePage',
+        component: () => import('@/views/home/index.vue'),
+        name: '登录',
+        meta: { title: 'Export Excel' }
+      }
+    ]
   },
   {
     path: '/login',
-    name: 'login',
-    component: () => import('@/views/login/index.vue')
+    component: () => import('@/views/login/index.vue'),
+    name: '登录',
+    meta: { title: 'Export Excel' }
   }
 ]
 

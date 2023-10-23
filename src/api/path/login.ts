@@ -1,4 +1,4 @@
-import { Post } from '../server'
+import { Post, Get } from '../server'
 
 interface FcResponse<T> {
   errno: string
@@ -9,11 +9,23 @@ interface FcResponse<T> {
 
 type ApiResponse<T> = Promise<[any, FcResponse<T> | undefined]>
 
-//  登录
-function dologin<T>(requestData?: object | never): ApiResponse<T> {
-  return Post<T>('/user/dataCockpitLogin', { ...requestData })
+//  获取权限路由
+function getRoutersTree<T>(requestData?: object | never): ApiResponse<T> {
+  return Post<T>('/center/admin/routers/getRoutersList', { ...requestData })
+}
+
+//  获取登录的图形验证码
+function getAuthCaptcha<T>(requestData?: object | never): ApiResponse<T> {
+  return Get<T>('/center/auth/captcha/captcha', { ...requestData })
+}
+
+//  获取登录的图形验证码
+function goLogin<T>(requestData?: object | never): ApiResponse<T> {
+  return Post<T>('/center/auth/center/login', { ...requestData })
 }
 
 export const login = {
-  dologin
+  getRoutersTree,
+  getAuthCaptcha,
+  goLogin
 }
