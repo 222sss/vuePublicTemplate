@@ -16,6 +16,7 @@
       <el-table-column
         :prop="item.prop"
         :label="item.label"
+        width="120px"
         align="center "
         v-bind="item.attrs"
         v-for="(item, index) in tableConfig.tableKey"

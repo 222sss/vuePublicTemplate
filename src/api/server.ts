@@ -16,8 +16,8 @@ interface IAnyObj {
 interface FcResponse<T> {
   errno: string
   errmsg: string
-  dataJson: T | any
   data: T | any
+  total?: number
 }
 
 axios.interceptors.request.use((config) => {

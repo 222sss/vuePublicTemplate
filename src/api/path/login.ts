@@ -3,8 +3,8 @@ import { Post, Get } from '../server'
 interface FcResponse<T> {
   errno: string
   errmsg: string
-  dataJson: T | any
   data: T | any
+  total?: number
 }
 
 type ApiResponse<T> = Promise<[any, FcResponse<T> | undefined]>
