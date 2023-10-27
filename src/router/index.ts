@@ -28,9 +28,6 @@ export const releaseRoutes: RouteRecordRaw[] = [
   }
 ]
 
-// 权限路由
-export const authorityRoutes = []
-
 // 创建路由
 const router = createRouter({
   history: createWebHashHistory(),

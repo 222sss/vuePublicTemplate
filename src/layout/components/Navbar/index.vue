@@ -54,7 +54,6 @@ import { he } from 'element-plus/es/locale';
     </div>
     <div class="Tabs">
       <el-button
-        size="small"
         type="primary"
         v-for="(item, index) in Store.cacheRouterList"
         :key="index"

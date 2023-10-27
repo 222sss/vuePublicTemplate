@@ -9,7 +9,6 @@
           :rules="rules"
           label-width="0px"
           class="demo-ruleForm"
-          size="default"
           status-icon
         >
           <el-form-item prop="userName">

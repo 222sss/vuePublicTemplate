@@ -67,7 +67,7 @@ export const handleNetworkError = (errStatus: number | null) => {
 
 // 接口异常处理
 export const handleGeneralError = (errcode?: number, errmsg?: string) => {
-  if (errcode == 40402) {
+  if (errcode == 40402 || errcode == 40403) {
     router.push('/login')
     return
   }

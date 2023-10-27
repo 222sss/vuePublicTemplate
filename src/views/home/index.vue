@@ -7,3 +7,5 @@ onMounted(() => {
 })
 const init = async () => {}
 </script>
+
+<style></style>

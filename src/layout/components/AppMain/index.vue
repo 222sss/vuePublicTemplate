@@ -27,5 +27,9 @@ onMounted(() => {
   background-color: #fff;
   height: 100%;
   padding: 20px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 </style>

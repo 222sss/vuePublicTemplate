@@ -20,7 +20,6 @@ router.beforeEach(async (to, from, next) => {
         // 把路由表设置到pinia中
         Store.setSidebarList(routerList)
 
-        console.log(routerList)
         // 挂载路由
         await routerList.map((item) => {
           router.addRoute(item)
